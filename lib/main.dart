@@ -1,9 +1,12 @@
-// import 'package:finance/Screens/home.dart';
-// import 'package:finance/Screens/statistics.dart';
+import 'package:finance/data/model/add_date.dart';
 import 'package:finance/widgets/bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/adapters.dart';
 
-void main() {
+void main() async {
+  await Hive.initFlutter();
+  Hive.registerAdapter(AdddataAdapter());
+  await Hive.openBox<Add_data>('data');
   runApp(const MyApp());
 }
 
