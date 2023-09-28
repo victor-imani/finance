@@ -42,6 +42,7 @@ class _AddScreenState extends State<AddScreen> {
     });
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey.shade100,
@@ -320,7 +321,7 @@ class _AddScreenState extends State<AddScreen> {
           selectedItemBuilder: (BuildContext context) => _item
               .map((e) => Row(
                     children: [
-                      Container(
+                      SizedBox(
                         width: 42,
                         child: Image.asset('images/$e.png'),
                       ),

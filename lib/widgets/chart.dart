@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class Chart extends StatefulWidget {
-  int index;
-  Chart({super.key, required this.index});
+  int indexNew;
+  Chart({Key? key, required this.indexNew}) : super(key: key);
 
   @override
   State<Chart> createState() => _ChartState();
@@ -17,7 +17,7 @@ class _ChartState extends State<Chart> {
   bool j = true;
   @override
   Widget build(BuildContext context) {
-    switch (widget.index) {
+    switch (widget.indexNew) {
       case 0:
         a = today();
         b = true;
@@ -49,7 +49,7 @@ class _ChartState extends State<Chart> {
             color: const Color.fromARGB(255, 47, 125, 121),
             width: 3,
             dataSource: <SalesData>[
-              ...List.generate(time(a!, b ? true : false).length, (index) {
+              ...List.generate(time(a!, b ? true : false).length.compareTo(0), (index) {
                 return SalesData(
                     j
                         ? b
@@ -64,8 +64,9 @@ class _ChartState extends State<Chart> {
                             ? time(a!, false)[index] +
                                 time(a!, false)[index - 1]
                             : time(a!, false)[index]);
-              })
-            ],
+              }
+          ),
+          ],
             xValueMapper: (SalesData sales, _) => sales.year,
             yValueMapper: (SalesData sales, _) => sales.sales,
           ),

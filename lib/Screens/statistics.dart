@@ -133,7 +133,7 @@ class _StatisticsState extends State<Statistics> {
               const SizedBox(
                 height: 20,
               ),
-              Chart(index: indexColor,),
+              Chart(indexNew: indexColor,),
               const SizedBox(
                 height: 20,
               ),
