@@ -3,13 +3,13 @@ import 'package:hive/hive.dart';
 
 int totals = 0;
 
-final box = Hive.box<Add_data>('data');
+final box = Hive.box<AddData>('data');
 
 int total() {
   var history2 = box.values.toList();
   List a = [0, 0];
   for (var i = 0; i < history2.length; i++) {
-    a.add(history2[i].IN == 'Income'
+    a.add(history2[i].income == 'Income'
         ? int.parse(history2[i].amount)
         : int.parse(history2[i].amount) * -1);
   }
@@ -22,7 +22,7 @@ int income() {
   var history2 = box.values.toList();
   List a = [0, 0];
   for (var i = 0; i < history2.length; i++) {
-    a.add(history2[i].IN == 'Income' ? int.parse(history2[i].amount) : 0);
+    a.add(history2[i].income == 'Income' ? int.parse(history2[i].amount) : 0);
   }
 
   totals = a.reduce((value, element) => value + element);
@@ -33,15 +33,15 @@ int expenses() {
   var history2 = box.values.toList();
   List a = [0, 0];
   for (var i = 0; i < history2.length; i++) {
-    a.add(history2[i].IN == 'Income' ? 0 : int.parse(history2[i].amount) * -1);
+    a.add(history2[i].income == 'Income' ? 0 : int.parse(history2[i].amount) * -1);
   }
 
   totals = a.reduce((value, element) => value + element);
   return totals;
 }
 
-List<Add_data> today() {
-  List<Add_data> a = [];
+List<AddData> today() {
+  List<AddData> a = [];
   var history2 = box.values.toList();
   DateTime date = DateTime.now();
   for (var i = 0; i < history2.length; i++) {
@@ -52,8 +52,8 @@ List<Add_data> today() {
   return a;
 }
 
-List<Add_data> week() {
-  List<Add_data> a = [];
+List<AddData> week() {
+  List<AddData> a = [];
   var history2 = box.values.toList();
   DateTime date = DateTime.now();
   for (var i = 0; i < history2.length; i++) {
@@ -65,8 +65,8 @@ List<Add_data> week() {
   return a;
 }
 
-List<Add_data> month() {
-  List<Add_data> a = [];
+List<AddData> month() {
+  List<AddData> a = [];
   var history2 = box.values.toList();
   DateTime date = DateTime.now();
   for (var i = 0; i < history2.length; i++) {
@@ -77,8 +77,8 @@ List<Add_data> month() {
   return a;
 }
 
-List<Add_data> year() {
-  List<Add_data> a = [];
+List<AddData> year() {
+  List<AddData> a = [];
   var history2 = box.values.toList();
   DateTime date = DateTime.now();
   for (var i = 0; i < history2.length; i++) {
@@ -89,10 +89,10 @@ List<Add_data> year() {
   return a;
 }
 
-int totalChart(List<Add_data> history2) {
+int totalChart(List<AddData> history2) {
   List a = [0, 0];
   for (var i = 0; i < history2.length; i++) {
-    a.add(history2[i].IN == 'Income'
+    a.add(history2[i].income == 'Income'
         ? int.parse(history2[i].amount)
         : int.parse(history2[i].amount) * -1);
   }
@@ -101,8 +101,8 @@ int totalChart(List<Add_data> history2) {
   return totals;
 }
 
-List time(List<Add_data> history2, bool hour) {
-  List<Add_data> a = [];
+List time(List<AddData> history2, bool hour) {
+  List<AddData> a = [];
   List total = [0, 0];
   int counter = 0;
 

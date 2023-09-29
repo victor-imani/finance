@@ -6,17 +6,17 @@ part of 'add_date.dart';
 // TypeAdapterGenerator
 // **************************************************************************
 
-class AdddataAdapter extends TypeAdapter<Add_data> {
+class AdddataAdapter extends TypeAdapter<AddData> {
   @override
   final int typeId = 1;
 
   @override
-  Add_data read(BinaryReader reader) {
+  AddData read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return Add_data(
+    return AddData(
       fields[3] as String,
       fields[0] as String,
       fields[1] as String,
@@ -26,7 +26,7 @@ class AdddataAdapter extends TypeAdapter<Add_data> {
   }
 
   @override
-  void write(BinaryWriter writer, Add_data obj) {
+  void write(BinaryWriter writer, AddData obj) {
     writer
       ..writeByte(5)
       ..writeByte(0)
@@ -36,7 +36,7 @@ class AdddataAdapter extends TypeAdapter<Add_data> {
       ..writeByte(2)
       ..write(obj.amount)
       ..writeByte(3)
-      ..write(obj.IN)
+      ..write(obj.income)
       ..writeByte(4)
       ..write(obj.dateTime);
   }

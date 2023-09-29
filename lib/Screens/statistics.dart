@@ -14,7 +14,7 @@ class Statistics extends StatefulWidget {
 class _StatisticsState extends State<Statistics> {
   List day = ['Day', 'Week', 'Month', 'Year'];
   List f = [today(), week(), month(), year()];
-  List<Add_data> a = [];
+  List<AddData> a = [];
   int indexColor = 0;
   ValueNotifier valueNotifier = ValueNotifier(0);
   @override
@@ -183,7 +183,7 @@ class _StatisticsState extends State<Statistics> {
                   style: TextStyle(
                     fontWeight: FontWeight.w600,
                     fontSize: 19,
-                    color: a[index].IN == 'Income' ? Colors.green : Colors.red,
+                    color: a[index].income == 'Income' ? Colors.green : Colors.red,
                   ),
                 ),
               );

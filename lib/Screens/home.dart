@@ -13,7 +13,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   var history;
-  final box = Hive.box<Add_data>('data');
+  final box = Hive.box<AddData>('data');
   final List<String> day = [
     'Monday',
     "Tuesday",
@@ -78,7 +78,7 @@ class _HomeState extends State<Home> {
     );
   }
 
-  Widget getList(Add_data history, int index) {
+  Widget getList(AddData history, int index) {
     return Dismissible(
         key: UniqueKey(),
         onDismissed: (direction) {
@@ -87,7 +87,7 @@ class _HomeState extends State<Home> {
         child: getListTile(index, history));
   }
 
-  ListTile getListTile(int index, Add_data history) {
+  ListTile getListTile(int index, AddData history) {
     return ListTile(
       leading: ClipRRect(
         borderRadius: BorderRadius.circular(5),
@@ -106,7 +106,7 @@ class _HomeState extends State<Home> {
         style: TextStyle(
           fontWeight: FontWeight.w600,
           fontSize: 19,
-          color: history.IN == 'Income' ? Colors.green : Colors.red,
+          color: history.income == 'Income' ? Colors.green : Colors.red,
         ),
       ),
     );

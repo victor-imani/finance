@@ -10,7 +10,7 @@ class AddScreen extends StatefulWidget {
 }
 
 class _AddScreenState extends State<AddScreen> {
-  final box = Hive.box<Add_data>('data');
+  final box = Hive.box<AddData>('data');
   DateTime date = DateTime.now();
   final TextEditingController explainController = TextEditingController();
   FocusNode explainFNode = FocusNode();
@@ -31,7 +31,7 @@ class _AddScreenState extends State<AddScreen> {
   ];
   @override
   void initState() {
-    // TODO: implement initState
+   
     super.initState();
     explainFNode.addListener(() {
       setState(() {});
@@ -102,7 +102,7 @@ class _AddScreenState extends State<AddScreen> {
   GestureDetector saveButton() {
     return GestureDetector(
       onTap: () {
-        var add = Add_data(selectedItem2!, selectedItem!,
+        var add = AddData(selectedItem2!, selectedItem!,
             explainController.text, amountController.text, date);
         box.add(add);
         Navigator.of(context).pop();
@@ -178,18 +178,16 @@ class _AddScreenState extends State<AddScreen> {
           items: _item2
               .map((e) => DropdownMenuItem(
                     value: e,
-                    child: Container(
-                      child: Row(
-                        children: [
-                          const SizedBox(
-                            width: 40,
-                          ),
-                          Text(
-                            e,
-                            style: const TextStyle(fontSize: 18),
-                          ),
-                        ],
-                      ),
+                    child: Row(
+                      children: [
+                        const SizedBox(
+                          width: 40,
+                        ),
+                        Text(
+                          e,
+                          style: const TextStyle(fontSize: 18),
+                        ),
+                      ],
                     ),
                   ))
               .toList(),
@@ -302,19 +300,17 @@ class _AddScreenState extends State<AddScreen> {
           items: _item
               .map((e) => DropdownMenuItem(
                     value: e,
-                    child: Container(
-                      child: Row(
-                        children: [
-                          SizedBox(
-                            width: 40,
-                            child: Image.asset('images/$e.png'),
-                          ),
-                          Text(
-                            e,
-                            style: const TextStyle(fontSize: 18),
-                          ),
-                        ],
-                      ),
+                    child: Row(
+                      children: [
+                        SizedBox(
+                          width: 40,
+                          child: Image.asset('images/$e.png'),
+                        ),
+                        Text(
+                          e,
+                          style: const TextStyle(fontSize: 18),
+                        ),
+                      ],
                     ),
                   ))
               .toList(),

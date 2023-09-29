@@ -1,18 +1,24 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+
 import 'package:finance/data/model/add_date.dart';
 import 'package:finance/data/utility.dart';
-import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
+import 'package:flutter/material.dart';
+
 class Chart extends StatefulWidget {
-  int indexNew;
-  Chart({Key? key, required this.indexNew}) : super(key: key);
+  final int indexNew;
+  const Chart({
+    Key? key,
+    required this.indexNew,
+  }) : super(key: key);
 
   @override
   State<Chart> createState() => _ChartState();
 }
 
 class _ChartState extends State<Chart> {
-  List<Add_data>? a;
+  List<AddData>? a;
   bool b = true;
   bool j = true;
   @override
@@ -49,7 +55,8 @@ class _ChartState extends State<Chart> {
             color: const Color.fromARGB(255, 47, 125, 121),
             width: 3,
             dataSource: <SalesData>[
-              ...List.generate(time(a!, b ? true : false).length.compareTo(0), (index) {
+              ...List.generate(time(a!, b ? true : false).length.compareTo(0),
+                  (index) {
                 return SalesData(
                     j
                         ? b
@@ -64,9 +71,8 @@ class _ChartState extends State<Chart> {
                             ? time(a!, false)[index] +
                                 time(a!, false)[index - 1]
                             : time(a!, false)[index]);
-              }
-          ),
-          ],
+              }),
+            ],
             xValueMapper: (SalesData sales, _) => sales.year,
             yValueMapper: (SalesData sales, _) => sales.sales,
           ),

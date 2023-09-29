@@ -1,4 +1,4 @@
-class money {
+class Money {
   String? image;
   String? name;
   String? fee;

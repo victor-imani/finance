@@ -1,21 +1,21 @@
-import '1.dart';
+import 'one.dart';
 
-List<money> geter() {
-  money upwork = money();
+List<Money> geter() {
+  Money upwork = Money();
   upwork.name = 'Upwork';
   upwork.fee = '650';
   upwork.time = 'Today';
   upwork.image = 'up.png';
   upwork.buy = false;
 
-  money starBucks = money();
+  Money starBucks = Money();
   starBucks.buy = true;
   starBucks.fee = '15';
   starBucks.image = 'Star.png';
   starBucks.name = 'StarBucks';
   starBucks.time = 'Today';
 
-  money transfer = money();
+  Money transfer = Money();
   transfer.buy = true;
   transfer.fee = '100';
   transfer.image = 'Transfer.png';
